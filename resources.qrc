@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/bullet 3.png</file>
+        <file>img/bullet sound.mp3</file>
+        <file>img/bullet.png</file>
+        <file>img/bullet2.png</file>
+        <file>img/bullet-hit-metal-84818.mp3</file>
+        <file>img/chiken.png</file>
+        <file>img/rubber-chicken-squeak-toy-1-181416.mp3</file>
+        <file>img/ship.png</file>
+        <file>img/the-epic-2-by-rafael-krux(chosic.com).mp3</file>
+    </qresource>
+</RCC>

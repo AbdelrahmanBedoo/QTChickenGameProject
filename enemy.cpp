@@ -8,7 +8,7 @@
 
 Enemy::Enemy() {
     // Set the enemy image
-    setPixmap(QPixmap(":/resources/img/chiken.png").scaled(100, 100));
+    setPixmap(QPixmap(":/img/img/chiken.png").scaled(100, 100));
 
     // Set the position of the enemy within the view dimensions
     int random_number = rand() % 700;
@@ -28,7 +28,7 @@ void Enemy::move() {
         if (typeid(*(colliding_items[i])) == typeid(Player)) {
             scene()->removeItem(this);
             delete this;
-            Player player = dynamic_cast<Player>(colliding_items[i]);
+            Player *player = dynamic_cast<Player*>(colliding_items[i]);
             player->decrease(); // Call decrease() on the player object
             return; // Exit the function after collision
         }

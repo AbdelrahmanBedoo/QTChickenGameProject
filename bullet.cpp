@@ -6,9 +6,9 @@
 #include <player.h>
 
 Bullet::Bullet(Player *player) : QObject(), QGraphicsPixmapItem(), player(player) {
-    // ***  Setting the bullet's size ****
- setPixmap(QPixmap(":/resources/img/bullet 3.png").scaled(50, 70));
-    // ***  Generating the Bullets automatically ****
+    // *******  Setting the bullet's size ********
+    setPixmap(QPixmap(":/img/img/bullet 3.png").scaled(50, 70));
+    // *******  Generating the Bullets automatically ********
     QTimer *timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(50);
@@ -18,14 +18,14 @@ Bullet::Bullet(Player *player) : QObject(), QGraphicsPixmapItem(), player(player
     enemySound->setVolume(100);
     chickenSound = new QMediaPlayer;
     chickenSound->setAudioOutput(enemySound);
-    chickenSound->setSource(QUrl("qrc:/resources/img/rubber-chicken-squeak-toy-1-181416.mp3"));
+    chickenSound->setSource(QUrl("qrc:/img/img/rubber-chicken-squeak-toy-1-181416.mp3"));
 
 }
 
 
 // Move function is used to move the bullet upwards and handle the collision of the bullets with enemies
 void Bullet::move() {
-    // ***  Getting the colliding items with the Bullet ****
+    // *******  Getting the colliding items with the Bullet ********
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0; i < colliding_items.size(); i++) {
         if (typeid(*colliding_items[i]) == typeid(Enemy)) {
@@ -43,10 +43,10 @@ void Bullet::move() {
 
 
 
-    // ***  Moving the bullets upward ****
+    // *******  Moving the bullets upward ********
     setPos(x(), y() -  10);
     if (pos().y() + pixmap().height() < 0) {
         scene()->removeItem(this);
         delete this;
-}
+    }
 }

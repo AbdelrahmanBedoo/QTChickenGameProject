@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 
     // Create the Player
     Player *player = new Player(&scene); // Pass the scene pointer to the Player constructor
-    player->setPixmap(QPixmap(":/resources/img/ship.png").scaled(100, 100));
+    player->setPixmap(QPixmap(":/img/img/ship.png").scaled(100, 100));
     player->setPos(view.width() / 2 - player->pixmap().width() / 2, view.height() - player->pixmap().height());
 
     // Add the Player to the Scene
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     mainThemeSoundOutput->setVolume(1);
     QMediaPlayer *mainThemeSound = new QMediaPlayer;
     mainThemeSound->setAudioOutput(mainThemeSoundOutput);
-    mainThemeSound->setSource(QUrl("qrc:/resources/img/the-epic-2-by-rafael-krux(chosic.com).mp3"));
+    mainThemeSound->setSource(QUrl("qrc:/img/img/the-epic-2-by-rafael-krux(chosic.com).mp3"));
     mainThemeSound->setLoops(QMediaPlayer::Infinite);
     mainThemeSound->play();
 

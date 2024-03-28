@@ -14,7 +14,7 @@
 
 Player::Player(QGraphicsScene *scene) : scene(scene), health(3), score(0), healthText(nullptr), scoreText(nullptr) {
     // Set the player image
-    setPixmap(QPixmap(":/resources/img/ship.png").scaled(100, 100));
+    setPixmap(QPixmap(":/img/img/ship.png").scaled(100, 100));
 
     // Initialize health and score text items
     healthText = new QGraphicsTextItem();
@@ -35,7 +35,7 @@ Player::Player(QGraphicsScene *scene) : scene(scene), health(3), score(0), healt
     bulletSoundOutput->setVolume(100);
     bulletSound = new QMediaPlayer;
     bulletSound->setAudioOutput(bulletSoundOutput);
-    bulletSound->setSource(QUrl("qrc:/resources/img/bullet-hit-metal-84818.mp3"));
+    bulletSound->setSource(QUrl("qrc:/img/img/bullet-hit-metal-84818.mp3"));
 }
 
 void Player::createEnemy()
@@ -69,17 +69,17 @@ void Player::decrease() {
     health--;
     healthText->setPlainText(QString("Health: ") + QString::number(health));
     if (health < 1) {
-        QMessageBox *msg = new QMessageBox;
-        msg->setText("Game Over! Your scored " + QString::number(score) +
-                     " chickens");
-        msg->setWindowTitle("Game Over!");
-        scene()->clear();
-        msg->exec();
-        QApplication::quit();
-}
+        QMessageBox::information(nullptr, "Game Over", "You lost! Your final score is: " + QString::number(score));
+        // Handle game over logic
+        scene->clear();
+        QCoreApplication::quit();
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Player::increase() {
     score++;
     scoreText->setPlainText(QString("Score: ") + QString::number(score));
 }
+
+

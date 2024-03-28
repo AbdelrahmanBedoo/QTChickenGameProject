@@ -22,4 +22,4 @@ private:
     QMediaPlayer *chickenSound;
 };
 
-#endif // BULLET_Hss
+#endif // BULLET_H
