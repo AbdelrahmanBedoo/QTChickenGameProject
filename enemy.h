@@ -1,10 +1,19 @@
+// enemy.h
 #ifndef ENEMY_H
 #define ENEMY_H
 
-class enemy
+#include <QGraphicsPixmapItem>
+#include <QObject>
+#include <player.h>
+
+class Enemy: public QObject , public QGraphicsPixmapItem
 {
+    Q_OBJECT
 public:
-    enemy();
+    Enemy();
+
+public slots:
+    void move();
 };
 
 #endif // ENEMY_H
